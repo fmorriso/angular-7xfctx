@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "bf81d28d-e7a7-4177-b5db-c72dcaee7bb1"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -30,6 +33,13 @@
             "scripts": []
           },
           "configurations": {
+            "development": {
+              "commonChunk": true,
+              "progress": true,
+              "sourceMap": true,
+              "vendorChunk": true,
+              "watch": true
+            },
             "production": {
               "fileReplacements": [],
               "optimization": true,
@@ -38,7 +48,9 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
+              "commonChunk": true,
+              "vendorChunk": true,
+              "progress": true,
               "buildOptimizer": true,
               "budgets": [
                 {
@@ -48,7 +60,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
